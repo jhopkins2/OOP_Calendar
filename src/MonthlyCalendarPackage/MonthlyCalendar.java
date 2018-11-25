@@ -126,6 +126,6 @@ public class MonthlyCalendar extends JFrame implements ActionListener, Calendars
             calendar.add(Calendar.MONTH, +1);
             update();
         }
-    }
+    } 
        
 }

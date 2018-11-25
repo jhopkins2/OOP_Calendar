@@ -4,10 +4,11 @@
  * and open the template in the editor.
  */
 package CalendarPackage;
+
 /**
  *
  * @author jacob
  */
 public interface Calendars {
-    abstract void makeCalendar();    
+    public abstract void makeCalendar();
 }
