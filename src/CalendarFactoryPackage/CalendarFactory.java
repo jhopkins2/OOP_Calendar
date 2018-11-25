@@ -16,7 +16,8 @@ public class CalendarFactory {
         if(s == null){
             return null;
         }        
-        if(s.equals("Monthly")){
+        String sUpper=s.toUpperCase();
+        if(sUpper.equals("MONTHLY")){
             return new MonthlyCalendar();
         }
                     

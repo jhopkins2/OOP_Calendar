@@ -21,7 +21,11 @@ public class MonthlyCalendar extends JFrame implements ActionListener, Calendars
     
     //Declaring variables:
 
-    private JLabel monthLabel;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JLabel monthLabel;
     private JButton leftButton, rightButton;
     private JPanel panel;
     private Calendar calendar;
@@ -64,7 +68,12 @@ public class MonthlyCalendar extends JFrame implements ActionListener, Calendars
         calendar = new GregorianCalendar();
 
         model = new DefaultTableModel(null, days) {
-            @Override
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 2L;
+
+			@Override
             public boolean isCellEditable(int row, int column) {  //Setting the table not editable and not selectable
                 table.setFocusable(false);
                 table.setRowSelectionAllowed(false);

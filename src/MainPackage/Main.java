@@ -16,7 +16,8 @@ import java.util.Scanner;
 public class Main {    
     public static void main(String[] args){
         CalendarFactory factory = new CalendarFactory();
-        Scanner reader =  new Scanner(System.in);
+        @SuppressWarnings("resource")
+		Scanner reader =  new Scanner(System.in);
         Calendars item = null;
         System.out.print("Type in the kind of calendar you want: ");
         if(reader.hasNextLine()){
