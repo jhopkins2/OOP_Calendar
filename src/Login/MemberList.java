@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class MemberList
 {
-    ArrayList<Member>Memberlist = new ArrayList();
+    ArrayList<Member>Memberlist = new ArrayList<Member>();
     
    
     //creates new members information layout to be written to the member.txt files

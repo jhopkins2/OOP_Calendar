@@ -5,21 +5,17 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Login.UserInfo;
 import Login.UserLogin;
-import Login.UserRegister;
 import MonthlyCalendarPackage.MonthlyCalendar;
 
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.SwingConstants;
-import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-
 import javax.swing.JComboBox;
-import javax.swing.JInternalFrame;
 
 public class CalendarMenu extends JFrame {
 
@@ -32,7 +28,7 @@ public class CalendarMenu extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public void main(String[] args) {
+	public void main(String[] args) {                    //main call to calendar menu
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -78,7 +74,8 @@ public class CalendarMenu extends JFrame {
 		btnViewUserInformation.addActionListener(new ActionListener() {  //if view user info button press
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				String[] args = {};
+				UserInfo.main(args);
 			} 
 		} );
 		
@@ -88,16 +85,8 @@ public class CalendarMenu extends JFrame {
 		btnLogOut.addActionListener(new ActionListener() {  //if log out button press
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				UserLogin a = null;
-				try {
-					a = new UserLogin();
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				
 				String[] args = {};
-				a.main(args);
+				UserLogin.main(args);
 				setVisible(false);
 			} 
 		} );

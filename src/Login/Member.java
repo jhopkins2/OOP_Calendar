@@ -123,4 +123,6 @@ public class Member extends UserLogin
         System.out.println("User: "+ this.getFirst()+" "+  this.getInitial()+" "+  this.getLast()+ "\nMember ID: "+ this.getMemID()+ "\nE-mail Address: "+ this.getEmail());
 
     }
+  
+	
 }

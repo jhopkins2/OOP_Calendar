@@ -19,6 +19,7 @@ import CalendarPackage.Calendars;
  */
 public class MonthlyCalendar extends JFrame implements ActionListener, Calendars{
 	public MonthlyCalendar() {
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}
     
     //Declaring variables:
@@ -28,7 +29,7 @@ public class MonthlyCalendar extends JFrame implements ActionListener, Calendars
 	 */
 	private static final long serialVersionUID = 1L;
 	private JLabel monthLabel;
-    private JButton leftButton, rightButton;
+    private JButton leftButton, rightButton,addEvent;
     private JPanel panel;
     private Calendar calendar;
     private DefaultTableModel model;
@@ -36,13 +37,13 @@ public class MonthlyCalendar extends JFrame implements ActionListener, Calendars
     private JScrollPane scrollPane;
 
     @Override
-    public JInternalFrame makeCalendar() {
+    public void makeCalendar() {
 
         //Setting frame:
 
         setTitle("Calendar");
         setSize(400,200);
-        getContentPane().setLayout(new BorderLayout());
+       
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         //Setting month label:
@@ -54,7 +55,7 @@ public class MonthlyCalendar extends JFrame implements ActionListener, Calendars
 
         leftButton = new JButton("<");
         rightButton = new JButton(">");
-
+        addEvent	= new JButton("Add Event");
         //Setting panel:
 
         panel = new JPanel();
@@ -62,7 +63,7 @@ public class MonthlyCalendar extends JFrame implements ActionListener, Calendars
         panel.add(leftButton, BorderLayout.WEST);
         panel.add(rightButton, BorderLayout.EAST);
         panel.add(monthLabel, BorderLayout.CENTER);
-
+        panel.add(addEvent, BorderLayout.SOUTH);
         //Setting Calendar to table:
 
         String days[] = {"Sun","Mon","Tue","Wed","Thu","Fri","Sat"};
@@ -93,13 +94,12 @@ public class MonthlyCalendar extends JFrame implements ActionListener, Calendars
 
         leftButton.addActionListener(this); 
         rightButton.addActionListener(this);
-
+        addEvent.addActionListener(this);
         //Initializing the month:
 
         update();
 
         setVisible(true);
-		return null;
 		
 
     }// End of Constructor
@@ -139,6 +139,11 @@ public class MonthlyCalendar extends JFrame implements ActionListener, Calendars
             calendar.add(Calendar.MONTH, +1);
             update();
         }
+        else if ( e.getSource() == addEvent ){
+        	String[] args = {};
+			NewEvent.main(args);
+        }
     } 
+    
        
 }
