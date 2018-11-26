@@ -73,9 +73,6 @@ public class MemberList
             char mInitial = arr[4].charAt(0);
             String lName = arr[5];
             String email = arr[6];
-            
-            
-            
             Member newMember = new Member(username, password, memID, fName, mInitial, lName, email);
             this.add(newMember); //calls to add member to the member list
         }

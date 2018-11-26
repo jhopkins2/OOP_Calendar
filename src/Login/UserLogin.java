@@ -84,27 +84,27 @@ public class UserLogin extends JFrame {
 		
 		JLabel lblCalendarLogin = DefaultComponentFactory.getInstance().createTitle("Calendar Login");
 		lblCalendarLogin.setFont(new Font("Microsoft JhengHei UI", Font.PLAIN, 14));
-		lblCalendarLogin.setBounds(78, 11, 275, 83);
+		lblCalendarLogin.setBounds(86, 11, 275, 83);
 		lblCalendarLogin.setHorizontalAlignment(SwingConstants.CENTER);
 		contentPane.add(lblCalendarLogin);
 		
 		JLabel lblUser = DefaultComponentFactory.getInstance().createTitle("User:");
-		lblUser.setBounds(120, 117, 33, 14);
+		lblUser.setBounds(157, 117, 33, 14);
 		contentPane.add(lblUser);
 		
 		JLabel lblPassword = DefaultComponentFactory.getInstance().createLabel("Password:");
-		lblPassword.setBounds(120, 154, 88, 14);
+		lblPassword.setBounds(155, 154, 70, 14);
 		contentPane.add(lblPassword);
 		
 		textField = new JTextField();
 		//username=textField.getText();
-		textField.setBounds(182, 114, 88, 20);
+		textField.setBounds(225, 114, 88, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
 		//password=textField_1.getText();
-		textField_1.setBounds(182, 151, 88, 20);
+		textField_1.setBounds(225, 151, 88, 20);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		 JButton btnRegister = new JButton("Register");
@@ -120,7 +120,7 @@ public class UserLogin extends JFrame {
 		} );
         
 		JButton btnLogin = new JButton("Login");
-		btnLogin.setBounds(182, 179, 89, 23);
+		btnLogin.setBounds(182, 180, 89, 23);
 		contentPane.add(btnLogin);
 		btnLogin.addActionListener(new ActionListener() {
 			private final MemberList memberList = new MemberList();
