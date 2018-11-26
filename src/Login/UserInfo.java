@@ -90,7 +90,7 @@ public class UserInfo extends JFrame {
 			JButton btnDone = new JButton("Done");
 			btnDone.setBounds(177, 197, 89, 23);
 			contentPane.add(btnDone);
-			btnDone.addActionListener(new ActionListener() {  //if register button press
+			btnDone.addActionListener(new ActionListener() {  //if done button press
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					setVisible(false);
