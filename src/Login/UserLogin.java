@@ -5,16 +5,13 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 //import com.jgoodies.forms.factories.DefaultComponentFactory;
 
-import CalendarFactoryPackage.CalendarFactory;
-import CalendarPackage.Calendars;
-
+import CalendarMain.CalendarMenu;
 import javax.swing.SwingConstants;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
-import java.util.Scanner;
-
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Color;
@@ -107,10 +104,13 @@ public class UserLogin extends JFrame {
 		textField_1.setBounds(225, 151, 88, 20);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
+		
 		 JButton btnRegister = new JButton("Register");
 		btnRegister.setBounds(182, 214, 89, 23);
 		contentPane.add(btnRegister);
-		btnRegister.addActionListener(new ActionListener() {
+		
+		
+		btnRegister.addActionListener(new ActionListener() {  //if register button press
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				UserRegister a= new UserRegister();
@@ -124,16 +124,12 @@ public class UserLogin extends JFrame {
 		contentPane.add(btnLogin);
 		
 		
-		
-		
-	
-		
-		btnLogin.addActionListener(new ActionListener() {
+		btnLogin.addActionListener(new ActionListener() {  //if login button press
 			private final MemberList memberList = new MemberList();
 			private Member currentUser=null;
 			
 			@Override
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) {     //get input from user
 				username=textField.getText();
 				password=textField_1.getText();
 				try {
@@ -143,31 +139,18 @@ public class UserLogin extends JFrame {
 					e1.printStackTrace();
 				}
 				this.currentUser = this.memberList.validateMember(username, password); //calls function to validate user credentials as present in member data files
-                if (this.currentUser != null)//if present 
-                	{
-                	CalendarFactory factory = new CalendarFactory();
-                	@SuppressWarnings("resource")
-					Scanner reader =  new Scanner(System.in);
-                	Calendars item = null;
-                	System.out.print("Type in the kind of calendar you want: "); //calls to type of calendar
-                	if(reader.hasNextLine()){
-                		String calendarType = reader.nextLine();
-                		item = factory.getCalendar(calendarType);
-                		}
-                		if(item != null){
-                			System.out.println("Making Calendar.");
-                			item.makeCalendar();								//creates calender
-                		}
-                		else{
-                			System.out.println("Input doesn't match."); 
-                		}
-				}
-                else {
-                	ErrorMessage a= new ErrorMessage();
-    				String[] args = {};
-    				a.main(args);
-                	System.out.println("Credentials do not match. Try again."); //if user is not present in system error message
-                }
+                if (this.currentUser != null){//if present     
+                		CalendarMenu a= new CalendarMenu(); //call to main calendar menu
+        				String[] args = {};
+        				a.main(args);
+        				setVisible(false);
+                	}
+                	else {
+                		ErrorMessage a= new ErrorMessage(); //call to error message pop up
+                		String[] args = {};
+                		a.main(args);
+                		System.out.println("Credentials do not match. Try again."); //if user is not present in system error message
+                	}
 			}
 		} );
 		

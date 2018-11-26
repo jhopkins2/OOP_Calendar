@@ -5,10 +5,12 @@
  */
 package CalendarPackage;
 
+import javax.swing.JInternalFrame;
+
 /**
  *
  * @author jacob
  */
 public interface Calendars {
-    public abstract void makeCalendar();
+    public abstract JInternalFrame makeCalendar();
 }

@@ -18,6 +18,8 @@ import CalendarPackage.Calendars;
  * @author jacob
  */
 public class MonthlyCalendar extends JFrame implements ActionListener, Calendars{
+	public MonthlyCalendar() {
+	}
     
     //Declaring variables:
 
@@ -34,14 +36,14 @@ public class MonthlyCalendar extends JFrame implements ActionListener, Calendars
     private JScrollPane scrollPane;
 
     @Override
-    public void makeCalendar() {
+    public JInternalFrame makeCalendar() {
 
         //Setting frame:
 
         setTitle("Calendar");
         setSize(400,200);
-        setLayout(new BorderLayout());
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new BorderLayout());
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         //Setting month label:
 
@@ -84,8 +86,8 @@ public class MonthlyCalendar extends JFrame implements ActionListener, Calendars
         table = new JTable(model);
         scrollPane = new JScrollPane(table);
 
-        add(panel,BorderLayout.NORTH); 
-        add(scrollPane, BorderLayout.CENTER);
+        getContentPane().add(panel,BorderLayout.NORTH); 
+        getContentPane().add(scrollPane, BorderLayout.CENTER);
 
         //Adding ActionListener to buttons:
 
@@ -97,6 +99,8 @@ public class MonthlyCalendar extends JFrame implements ActionListener, Calendars
         update();
 
         setVisible(true);
+		return null;
+		
 
     }// End of Constructor
 

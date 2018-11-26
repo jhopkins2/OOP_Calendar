@@ -160,6 +160,7 @@ public class UserRegister extends JFrame {
                                      newMember.getFirst(), newMember.getInitial(), newMember.getLast(), 
                                      newMember.getUsername(), newMember.getPassword());
                  } 
+                 setVisible(false);
 			}
 		} );
 	}
