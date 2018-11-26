@@ -9,7 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
-import com.jgoodies.forms.factories.DefaultComponentFactory;
+//import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 
 
@@ -65,7 +65,7 @@ public class UserRegister extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblUsername = DefaultComponentFactory.getInstance().createLabel("UserName:");
+		JLabel lblUsername = new JLabel("UserName:");
 		lblUsername.setBounds(83, 80, 92, 14);
 		contentPane.add(lblUsername);
 		
@@ -74,7 +74,7 @@ public class UserRegister extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		JLabel lblPassword = DefaultComponentFactory.getInstance().createLabel("Password:");
+		JLabel lblPassword = new JLabel("Password:");
 		lblPassword.setBounds(83, 111, 92, 14);
 		contentPane.add(lblPassword);
 		
@@ -83,7 +83,7 @@ public class UserRegister extends JFrame {
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
-		JLabel lblFirstName = DefaultComponentFactory.getInstance().createLabel("First Name:");
+		JLabel lblFirstName = new JLabel("First Name:");
 		lblFirstName.setBounds(83, 139, 92, 14);
 		contentPane.add(lblFirstName);
 		
@@ -92,7 +92,7 @@ public class UserRegister extends JFrame {
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
 		
-		JLabel lblNewJgoodiesLabel = DefaultComponentFactory.getInstance().createLabel("Middle Int.");
+		JLabel lblNewJgoodiesLabel = new JLabel("Middle Int.");
 		lblNewJgoodiesLabel.setBounds(83, 164, 92, 20);
 		contentPane.add(lblNewJgoodiesLabel);
 		
@@ -101,7 +101,7 @@ public class UserRegister extends JFrame {
 		contentPane.add(textField_5);
 		textField_5.setColumns(10);
 		
-		JLabel lblLastname = DefaultComponentFactory.getInstance().createLabel("LastName:");
+		JLabel lblLastname = new JLabel("LastName:");
 		lblLastname.setBounds(83, 196, 92, 14);
 		contentPane.add(lblLastname);
 		
@@ -110,7 +110,7 @@ public class UserRegister extends JFrame {
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
 		
-		JLabel lblEmail = DefaultComponentFactory.getInstance().createLabel("Email:");
+		JLabel lblEmail = new JLabel("Email:");
 		lblEmail.setBounds(83, 224, 92, 14);
 		contentPane.add(lblEmail);
 
@@ -119,7 +119,7 @@ public class UserRegister extends JFrame {
 		contentPane.add(textField_4);
 		textField_4.setColumns(10);
 		
-		JLabel lblNewUserRegister = DefaultComponentFactory.getInstance().createTitle("New User Register");
+		JLabel lblNewUserRegister = new JLabel("New User Register");
 		lblNewUserRegister.setBounds(111, 55, 129, 14);
 		contentPane.add(lblNewUserRegister);
 		

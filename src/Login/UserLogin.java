@@ -3,7 +3,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
-import com.jgoodies.forms.factories.DefaultComponentFactory;
+//import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 import CalendarFactoryPackage.CalendarFactory;
 import CalendarPackage.Calendars;
@@ -73,7 +73,7 @@ public class UserLogin extends JFrame {
 	public UserLogin() throws IOException{
 		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 460, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(240, 248, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -82,17 +82,17 @@ public class UserLogin extends JFrame {
 		
 		
 		
-		JLabel lblCalendarLogin = DefaultComponentFactory.getInstance().createTitle("Calendar Login");
+		JLabel lblCalendarLogin = new JLabel("Calendar Login");
 		lblCalendarLogin.setFont(new Font("Microsoft JhengHei UI", Font.PLAIN, 14));
 		lblCalendarLogin.setBounds(86, 11, 275, 83);
 		lblCalendarLogin.setHorizontalAlignment(SwingConstants.CENTER);
 		contentPane.add(lblCalendarLogin);
 		
-		JLabel lblUser = DefaultComponentFactory.getInstance().createTitle("User:");
+		JLabel lblUser = new JLabel("User:");
 		lblUser.setBounds(157, 117, 33, 14);
 		contentPane.add(lblUser);
 		
-		JLabel lblPassword = DefaultComponentFactory.getInstance().createLabel("Password:");
+		JLabel lblPassword = new JLabel("Password:");
 		lblPassword.setBounds(155, 154, 70, 14);
 		contentPane.add(lblPassword);
 		
@@ -122,6 +122,12 @@ public class UserLogin extends JFrame {
 		JButton btnLogin = new JButton("Login");
 		btnLogin.setBounds(182, 180, 89, 23);
 		contentPane.add(btnLogin);
+		
+		
+		
+		
+	
+		
 		btnLogin.addActionListener(new ActionListener() {
 			private final MemberList memberList = new MemberList();
 			private Member currentUser=null;
@@ -157,7 +163,10 @@ public class UserLogin extends JFrame {
                 		}
 				}
                 else {
-                	 System.out.println("Credentials do not match. Try again."); //if user is not present in system error message
+                	ErrorMessage a= new ErrorMessage();
+    				String[] args = {};
+    				a.main(args);
+                	System.out.println("Credentials do not match. Try again."); //if user is not present in system error message
                 }
 			}
 		} );
