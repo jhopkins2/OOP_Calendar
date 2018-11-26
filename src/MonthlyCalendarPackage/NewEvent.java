@@ -46,7 +46,7 @@ public class NewEvent extends JFrame {
 	 */
 	public NewEvent() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 600, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -77,24 +77,27 @@ public class NewEvent extends JFrame {
 		lblNewEvent.setBounds(183, 11, 81, 14);
 		contentPane.add(lblNewEvent);
 		
-		JComboBox<Object> comboBox = new JComboBox<Object>();
+		String[] monthNames = { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" };
+		JComboBox<Object> comboBox = new JComboBox<Object>(monthNames);
 		comboBox.setBounds(40, 72, 46, 20);
 		contentPane.add(comboBox);
 		
-		JComboBox<Object> comboBox_1 = new JComboBox<Object>();
+		String[] dayNumbers = {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"};
+		JComboBox<Object> comboBox_1 = new JComboBox<Object>(dayNumbers);
 		comboBox_1.setBounds(121, 72, 46, 20);
 		contentPane.add(comboBox_1);
 		
-		JComboBox<Object> comboBox_2 = new JComboBox<Object>();
-		comboBox_2.setBounds(260, 72, 46, 20);
+		String[] times = {"12:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00" };
+		JComboBox<Object> comboBox_2 = new JComboBox<Object>(times);
+		comboBox_2.setBounds(260, 72, 59, 20);
 		contentPane.add(comboBox_2);
 		
-		JComboBox<Object> comboBox_3 = new JComboBox<Object>();
-		comboBox_3.setBounds(260, 110, 46, 20);
+		JComboBox<Object> comboBox_3 = new JComboBox<Object>(times);
+		comboBox_3.setBounds(260, 110, 59, 20);
 		contentPane.add(comboBox_3);
 		
 		JRadioButton rdbtnAm = new JRadioButton("AM");
-		rdbtnAm.setBounds(319, 71, 46, 23);
+		rdbtnAm.setBounds(319, 71, 51, 23);
 		contentPane.add(rdbtnAm);
 		
 		JRadioButton rdbtnPm = new JRadioButton("PM");
