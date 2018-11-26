@@ -27,8 +27,8 @@ public class MonthlyCalendar extends JFrame implements ActionListener, Calendars
     /**
 	 * 
 	 */
-    private static final long serialVersionUID = 1L;
-    private JLabel monthLabel;
+	private static final long serialVersionUID = 1L;
+	private JLabel monthLabel;
     private JButton leftButton, rightButton,addEvent;
     private JPanel panel;
     private Calendar calendar;
@@ -42,7 +42,7 @@ public class MonthlyCalendar extends JFrame implements ActionListener, Calendars
         //Setting frame:
 
         setTitle("Calendar");
-        setSize(800,400);
+        setSize(400,200);
        
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
@@ -55,13 +55,13 @@ public class MonthlyCalendar extends JFrame implements ActionListener, Calendars
 
         leftButton = new JButton("<");
         rightButton = new JButton(">");
-        addEvent = new JButton("Add Event");
+        addEvent	= new JButton("Add Event");
         //Setting panel:
 
         panel = new JPanel();
         panel.setLayout(new BorderLayout());
-        //panel.add(leftButton, BorderLayout.WEST);
-        //panel.add(rightButton, BorderLayout.EAST);
+        panel.add(leftButton, BorderLayout.WEST);
+        panel.add(rightButton, BorderLayout.EAST);
         panel.add(monthLabel, BorderLayout.CENTER);
         panel.add(addEvent, BorderLayout.SOUTH);
         //Setting Calendar to table:
@@ -71,9 +71,12 @@ public class MonthlyCalendar extends JFrame implements ActionListener, Calendars
         calendar = new GregorianCalendar();
 
         model = new DefaultTableModel(null, days) {
-            private static final long serialVersionUID = 2L;
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 2L;
 
-            @Override
+			@Override
             public boolean isCellEditable(int row, int column) {  //Setting the table not editable and not selectable
                 table.setFocusable(false);
                 table.setRowSelectionAllowed(false);
@@ -115,10 +118,6 @@ public class MonthlyCalendar extends JFrame implements ActionListener, Calendars
 
         model.setRowCount(0);
         model.setRowCount(weeks);
-        for(int i = 0; i < weeks; i++){
-            table.setRowHeight(i, 50);
-        }
-        
 
         int i = startDay - 1;
         for(int j = 1; j <= numberDays; j++) {

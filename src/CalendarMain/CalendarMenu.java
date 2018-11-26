@@ -8,8 +8,6 @@ import javax.swing.border.EmptyBorder;
 import Login.UserInfo;
 import Login.UserLogin;
 import MonthlyCalendarPackage.MonthlyCalendar;
-import CalendarPackage.Calendars;
-import CalendarFactoryPackage.CalendarFactory;
 
 import javax.swing.JLabel;
 import javax.swing.JButton;
@@ -18,7 +16,6 @@ import javax.swing.SwingConstants;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JComboBox;
-import javax.swing.JOptionPane;
 
 public class CalendarMenu extends JFrame {
 
@@ -27,8 +24,6 @@ public class CalendarMenu extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-        private Calendars calItem = null;
-        private CalendarFactory cf = new CalendarFactory();
 
 	/**
 	 * Launch the application.
@@ -49,7 +44,7 @@ public class CalendarMenu extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public CalendarMenu() {            
+	public CalendarMenu() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 269, 496);
 		contentPane = new JPanel();
@@ -63,27 +58,18 @@ public class CalendarMenu extends JFrame {
 		lblWelcomeBack.setFont(new Font("Sylfaen", Font.PLAIN, 17));
 		contentPane.add(lblWelcomeBack);
 		
-		JButton btnNewMonthlyCalendar = new JButton("New Monthly Calendar");
-		btnNewMonthlyCalendar.setBounds(39, 81, 163, 23);
-		contentPane.add(btnNewMonthlyCalendar);
-		btnNewMonthlyCalendar.addActionListener(new ActionListener() {  //if new calendar button press
+		JButton btnNewCalendar = new JButton("New Calendar");
+		btnNewCalendar.setBounds(39, 81, 163, 23);
+		contentPane.add(btnNewCalendar);
+		btnNewCalendar.addActionListener(new ActionListener() {  //if new calendar button press
 			@Override
 			public void actionPerformed(ActionEvent e) {
-                                calItem = cf.getCalendar("Monthly");
-				calItem.makeCalendar();
-			} 
-		} );
-                JButton btnNewWeeklyCalendar = new JButton("New Weekly Calendar");
-		btnNewWeeklyCalendar.setBounds(39, 115, 163, 23);
-		contentPane.add(btnNewWeeklyCalendar);
-		btnNewWeeklyCalendar.addActionListener(new ActionListener() {  //if new calendar button press
-			@Override
-			public void actionPerformed(ActionEvent e) {
-                                JOptionPane.showMessageDialog(contentPane, "Weekly Calendar to be built.");                                
+				MonthlyCalendar i= new MonthlyCalendar();
+				i.makeCalendar();
 			} 
 		} );
 		JButton btnViewUserInformation = new JButton("View User Information");
-		btnViewUserInformation.setBounds(39, 149, 163, 23);
+		btnViewUserInformation.setBounds(39, 115, 163, 23);
 		contentPane.add(btnViewUserInformation);
 		btnViewUserInformation.addActionListener(new ActionListener() {  //if view user info button press
 			@Override
