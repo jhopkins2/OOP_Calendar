@@ -32,7 +32,7 @@ public class UserLogin extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	/*public static void main(String[] args) {
+	public static void createUserLoginForm(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -43,7 +43,7 @@ public class UserLogin extends JFrame {
 				}
 			}
 		});
-	}*/
+	}
 
 	/**
 	 * Create the frame.
@@ -141,7 +141,7 @@ public class UserLogin extends JFrame {
                 if (this.currentUser != null){//if present     
                 		CalendarMenu a= new CalendarMenu(); //call to main calendar menu
         				String[] args = {};
-        				//a.main(args);
+        				a.createCalendarMenu(args);
         				setVisible(false);
                 	}
                 	else {

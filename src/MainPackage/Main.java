@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package MainPackage;
+import Login.UserLogin;
 
 /**
  *
@@ -11,6 +12,6 @@ package MainPackage;
  */
 public class Main {
     public static void main(String[] args){
-        
+        UserLogin.createUserLoginForm(args);
     }
 }

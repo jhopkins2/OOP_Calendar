@@ -28,7 +28,7 @@ public class CalendarMenu extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	/*public void main(String[] args) {                    //main call to calendar menu
+	public void createCalendarMenu(String[] args) {                    //main call to calendar menu
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -39,7 +39,7 @@ public class CalendarMenu extends JFrame {
 				}
 			}
 		});
-	}*/
+	}
 
 	/**
 	 * Create the frame.
@@ -75,7 +75,7 @@ public class CalendarMenu extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String[] args = {};
-				//UserInfo.main(args);
+				UserInfo.createUserInfoForm(args);
 			} 
 		} );
 		
@@ -86,7 +86,7 @@ public class CalendarMenu extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String[] args = {};
-				//UserLogin.main(args);
+				UserLogin.createUserLoginForm(args);
 				setVisible(false);
 			} 
 		} );
