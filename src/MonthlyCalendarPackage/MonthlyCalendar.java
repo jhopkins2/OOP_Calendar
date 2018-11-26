@@ -141,7 +141,7 @@ public class MonthlyCalendar extends JFrame implements ActionListener, Calendars
         }
         else if ( e.getSource() == addEvent ){
         	String[] args = {};
-			NewEvent.main(args);
+			//NewEvent.main(args);
         }
     } 
     

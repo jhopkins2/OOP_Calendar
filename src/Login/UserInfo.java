@@ -21,7 +21,7 @@ public class UserInfo extends JFrame {
 	
 	
 	
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -32,7 +32,7 @@ public class UserInfo extends JFrame {
 				}
 			}
 		});
-	}
+	}*/
 
 		public UserInfo() {
 			setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
