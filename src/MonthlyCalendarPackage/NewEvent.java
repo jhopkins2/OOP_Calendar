@@ -46,7 +46,7 @@ public class NewEvent extends JFrame {
 	 */
 	public NewEvent() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 600, 300);
+		setBounds(100, 100, 460, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -113,7 +113,7 @@ public class NewEvent extends JFrame {
 		contentPane.add(rdbtnPm_1);
 		
 		JButton btnAddEvent = new JButton("Add Event");
-		btnAddEvent.setBounds(78, 227, 89, 23);
+		btnAddEvent.setBounds(78, 227, 100, 23);
 		contentPane.add(btnAddEvent);
 		btnAddEvent.addActionListener(new ActionListener() {  //if add event button press
 			@Override
