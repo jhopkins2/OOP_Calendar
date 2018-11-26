@@ -42,11 +42,13 @@ public class FileUtility
         return nameToFile(path, false);
     }
     //method used as utility function retrieve content from a file
-    public static ArrayList<String> retrieveContent(String path) throws FileNotFoundException, IOException {
+    @SuppressWarnings("finally")
+	public static ArrayList<String> retrieveContent(String path) throws FileNotFoundException, IOException {
         ArrayList<String> content = new ArrayList();//new string array list
         try (FileInputStream in = new FileInputStream(path))
         {
-            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+            @SuppressWarnings("resource")
+			BufferedReader br = new BufferedReader(new InputStreamReader(in));
 
             String line;
             while ((line = br.readLine()) != null)

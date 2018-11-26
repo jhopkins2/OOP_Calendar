@@ -20,14 +20,8 @@ public class MemberList
         
         for(Member current: this.Memberlist)
         {
-            int premium = 0;
-            if(current.getPremium() == true){
-                premium = 1;
-            }
-            else{
-                premium = 0;
-            }            
-            String memberdata = String.format("%s,%s,%d,%s,%s,%s,%s,%s,%d,%d\n",current.getUsername(), current.getPassword(), current.getMemID(), current.getFirst(), current.getInitial(), current.getLast(), current.getEmail(), current.getPhone(),current.getPoints(), premium );
+                    
+            String memberdata = String.format("%s,%s,%d,%s,%s,%s,%s\n",current.getUsername(), current.getPassword(), current.getMemID(), current.getFirst(), current.getInitial(), current.getLast(), current.getEmail() );
             
             contents = contents + memberdata;
         }
@@ -66,7 +60,7 @@ public class MemberList
             
             String[] arr = Current.split(",");
             
-            if (arr.length < 9)
+            if (arr.length < 6)
             {
                 continue;
             }
@@ -79,16 +73,10 @@ public class MemberList
             char mInitial = arr[4].charAt(0);
             String lName = arr[5];
             String email = arr[6];
-            String phone = arr[7];
             
             
-            int points = Integer.parseInt(arr[8]);
             
-            int ipremium = Integer.parseInt(arr[9]);
-            
-            boolean premium = (ipremium == 1);
-            
-            Member newMember = new Member(username, password, memID, fName, mInitial, lName, email, phone, points, premium);
+            Member newMember = new Member(username, password, memID, fName, mInitial, lName, email);
             this.add(newMember); //calls to add member to the member list
         }
     }
