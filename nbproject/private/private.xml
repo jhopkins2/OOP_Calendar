@@ -3,10 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/jacob/Documents/GitHub/OOP_Calendar/src/CalendarFactoryPackage/CalendarFactory.java</file>
-            <file>file:/C:/Users/jacob/Documents/GitHub/OOP_Calendar/src/CalendarPackage/Calendars.java</file>
             <file>file:/C:/Users/jacob/Documents/GitHub/OOP_Calendar/src/MonthlyCalendarPackage/MonthlyCalendar.java</file>
-            <file>file:/C:/Users/jacob/Documents/GitHub/OOP_Calendar/src/MainPackage/Main.java</file>
+            <file>file:/C:/Users/jacob/Documents/GitHub/OOP_Calendar/src/CalendarFactoryPackage/CalendarFactory.java</file>
+            <file>file:/C:/Users/jacob/Documents/GitHub/OOP_Calendar/src/MonthlyCalendarPackage/NewEvent.java</file>
         </group>
     </open-files>
 </project-private>
