@@ -1,1 +1,4 @@
 hchapman,hchapman,1,h,r,c,hrc@email.com
+user1,1234,1,john,h,smith,jsmith
+user,asdf,1,jane,h,doe,jdoe
+user2,password,1,test,t,test,test@test

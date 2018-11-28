@@ -68,7 +68,7 @@ public class UserLogin extends JFrame {
     }
 	public UserLogin() throws IOException{
 		
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 460, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(240, 248, 255));
@@ -78,7 +78,7 @@ public class UserLogin extends JFrame {
 		
 		
 		
-		JLabel lblCalendarLogin = new JLabel("Calendar Login");
+		JLabel lblCalendarLogin = new JLabel("Schedule Maker Login");
 		lblCalendarLogin.setFont(new Font("Microsoft JhengHei UI", Font.PLAIN, 14));
 		lblCalendarLogin.setBounds(86, 11, 275, 83);
 		lblCalendarLogin.setHorizontalAlignment(SwingConstants.CENTER);
@@ -139,8 +139,8 @@ public class UserLogin extends JFrame {
 				}
 				this.currentUser = this.memberList.validateMember(username, password); //calls function to validate user credentials as present in member data files
                 if (this.currentUser != null){//if present     
-                		CalendarMenu a= new CalendarMenu(); //call to main calendar menu
-        				String[] args = {};
+                		CalendarMenu a= new CalendarMenu();//call to main calendar menu
+                		String[] args = {};
         				a.createCalendarMenu(args);
         				setVisible(false);
                 	}

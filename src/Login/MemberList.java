@@ -26,7 +26,7 @@ public class MemberList
             contents = contents + memberdata;
         }
         
-        FileUtility.writeContent(".\\txtFiles\\members.txt", contents, false);//writes content to the members file
+        FileUtility.writeContent(".\\txtFiles\\members.txt", contents,true);//writes content to the members file
     }
      //Checks to see if member already exists in the member list
     public Member validateMember(String user, String password){
