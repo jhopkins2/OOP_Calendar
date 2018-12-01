@@ -1,0 +1,1 @@
+To edit the files without any file extension, go to draw.io and open those files in that program.
