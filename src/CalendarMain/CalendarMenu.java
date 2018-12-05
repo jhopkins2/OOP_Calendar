@@ -1,5 +1,6 @@
 package CalendarMain;
 
+import Login.Member;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -38,16 +39,17 @@ public class CalendarMenu extends JFrame {
 	private DefaultTableModel model;
 	private Calendar calendar;
 	private JLabel currentMonth;
+        private Member currentUser;
 	
 
 	/**
 	 * Launch the application.
 	 */
-	public void createCalendarMenu(String[] args) {                    //main call to calendar menu
+	public static void createCalendarMenu(Member u) {                    //main call to calendar menu
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CalendarMenu frame = new CalendarMenu();
+					CalendarMenu frame = new CalendarMenu(u);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -59,9 +61,9 @@ public class CalendarMenu extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public CalendarMenu() {
+	public CalendarMenu(Member cu) {
 		
-
+                currentUser = cu;
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 792, 497);
@@ -92,7 +94,7 @@ public class CalendarMenu extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String[] args = {};
-				UserInfo.createUserInfoForm(args);
+				UserInfo.createUserInfoForm(currentUser);
 			} 
 		} );
 		
@@ -132,8 +134,8 @@ public class CalendarMenu extends JFrame {
 		btnAddEvent.addActionListener(new ActionListener() {  //if add event is pressed
 			@Override
 			public void actionPerformed(ActionEvent e) {
-	           String[] args = {};
-	           NewEvent.createNewEventForm(args);
+                            String[] args = {};
+                            NewEvent.createNewEventForm(args);
 			} 
 		} );
 		
@@ -153,12 +155,12 @@ public class CalendarMenu extends JFrame {
 			 */
 			private static final long serialVersionUID = 2L;
 
-			@Override
-            public boolean isCellEditable(int row, int column) {  //Setting the table not editable and not selectable
-                table.setFocusable(true);
-                table.setRowSelectionAllowed(true);
-                return false;
-            }
+                @Override
+                public boolean isCellEditable(int row, int column) { //make the cells in the table editable
+                    table.setFocusable(true);
+                    table.setRowSelectionAllowed(true);
+                    return false;
+                }
         };
         table = new JTable(model);
         table.setFillsViewportHeight(true);
@@ -169,42 +171,13 @@ public class CalendarMenu extends JFrame {
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		table.setBounds(212, 85, 535, 318);
 		contentPane.add(table);
-		
-		
-		
-		JButton rightButton = new JButton(">");
-		rightButton.setBounds(695, 53, 52, 23);
-		contentPane.add(rightButton);
-		rightButton.addActionListener(new ActionListener() {  //if right button press
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				calendar.add(Calendar.MONTH, +1);
-	            update();
-	           
-			} 
-		} );
-		
-		JButton leftButton = new JButton("<");
-		leftButton.setBounds(212, 53, 52, 23);
-		contentPane.add(leftButton);
-		leftButton.addActionListener(new ActionListener() {  //if left button press
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				 calendar.add(Calendar.MONTH, -1);
-		            update();
-		            
-			} 
-		} );
+	
 		currentMonth = new JLabel();
 		currentMonth.setHorizontalAlignment(SwingConstants.CENTER);
 		currentMonth.setBounds(410, 53, 125, 14);
 		contentPane.add(currentMonth);
 		update();
-		 //end calendar
-		
-		
-	
-		
+		 //end calendar		
 	}
 	public void update() {
 

@@ -139,9 +139,8 @@ public class UserLogin extends JFrame {
 				}
 				this.currentUser = this.memberList.validateMember(username, password); //calls function to validate user credentials as present in member data files
                 if (this.currentUser != null){//if present     
-                		CalendarMenu a= new CalendarMenu();//call to main calendar menu
-                		String[] args = {};
-        				a.createCalendarMenu(args);
+                		//call to main calendar menu
+                		CalendarMenu.createCalendarMenu(this.currentUser);
         				setVisible(false);
                 	}
                 	else {

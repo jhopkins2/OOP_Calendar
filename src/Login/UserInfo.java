@@ -18,14 +18,15 @@ public class UserInfo extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+        private Member currentUser;
 	
 	
 	
-	public static void createUserInfoForm(String[] args) {
+	public static void createUserInfoForm(Member arg) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					UserInfo frame = new UserInfo();
+					UserInfo frame = new UserInfo(arg);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -34,7 +35,9 @@ public class UserInfo extends JFrame {
 		});
 	}
 
-		public UserInfo() {
+		public UserInfo(Member cuArg) {
+                        currentUser = cuArg;
+                    
 			setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			setBounds(100, 100, 450, 300);
 			contentPane = new JPanel();
@@ -64,22 +67,27 @@ public class UserInfo extends JFrame {
 			
 			JLabel lblNewLabel = new JLabel();
 			lblNewLabel.setBounds(177, 47, 150, 14);
+                        lblNewLabel.setText(currentUser.getFirst());
 			contentPane.add(lblNewLabel);
 			
 			JLabel lblNewLabel_1 = new JLabel();
 			lblNewLabel_1.setBounds(177, 72, 150, 14);
+                        lblNewLabel_1.setText(currentUser.getLast());
 			contentPane.add(lblNewLabel_1);
 			
 			JLabel lblNewLabel_2 = new JLabel();
 			lblNewLabel_2.setBounds(177, 97, 150, 14);
+                        lblNewLabel_2.setText(currentUser.getEmail());
 			contentPane.add(lblNewLabel_2);
 			
 			JLabel lblNewLabel_3 = new JLabel();
 			lblNewLabel_3.setBounds(177, 119, 150, 14);
+                        lblNewLabel_3.setText(currentUser.getUsername());
 			contentPane.add(lblNewLabel_3);
 			
 			JLabel lblNewLabel_4 = new JLabel();
 			lblNewLabel_4.setBounds(177, 144, 150, 14);
+                        lblNewLabel_4.setText(currentUser.getPassword());
 			contentPane.add(lblNewLabel_4);
 			
 			JLabel lblUserInformation = new JLabel("User Information");
