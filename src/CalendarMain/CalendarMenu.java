@@ -1,5 +1,7 @@
 package CalendarMain;
 
+import CalendarFactoryPackage.CalendarFactory;
+import CalendarPackage.Calendars;
 import Login.Member;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
@@ -30,9 +32,6 @@ import javax.swing.border.EtchedBorder;
 
 public class CalendarMenu extends JFrame {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTable table;
@@ -40,12 +39,14 @@ public class CalendarMenu extends JFrame {
 	private Calendar calendar;
 	private JLabel currentMonth;
         private Member currentUser;
+        private Calendars calendarObject;
+        private CalendarFactory factory = new CalendarFactory();
 	
 
 	/**
 	 * Launch the application.
 	 */
-	public static void createCalendarMenu(Member u) {                    //main call to calendar menu
+	public static void createCalendarMenu(Member u) {                    
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -79,16 +80,17 @@ public class CalendarMenu extends JFrame {
 		contentPane.add(lblWelcomeBack);
 		
 		JButton btnNewCalendar = new JButton("New Calendar");
-		btnNewCalendar.setBounds(39, 81, 163, 23);
+		btnNewCalendar.setBounds(39, 141, 163, 23);
 		contentPane.add(btnNewCalendar);
 		btnNewCalendar.addActionListener(new ActionListener() {  //if new calendar button press
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				calendarObject = factory.getCalendar("Monthly");
+                                calendarObject.makeCalendar();                         
 			} 
 		} );
 		JButton btnViewUserInformation = new JButton("View User Information");
-		btnViewUserInformation.setBounds(39, 115, 163, 23);
+		btnViewUserInformation.setBounds(39, 174, 163, 23);
 		contentPane.add(btnViewUserInformation);
 		btnViewUserInformation.addActionListener(new ActionListener() {  //if view user info button press
 			@Override
@@ -112,14 +114,14 @@ public class CalendarMenu extends JFrame {
 		
 		JComboBox<Object> comboBox = new JComboBox<Object>();
 		comboBox.setToolTipText("");
-		comboBox.setBounds(39, 174, 163, 23);
+		comboBox.setBounds(39, 110, 163, 23);
 		contentPane.add(comboBox);
 		//comboBox.addItem(new );
 		//comboBox.addItem();
 		
-		JLabel lblViewSavedCalendars = new JLabel("View Saved Calendars");
+		JLabel lblViewSavedCalendars = new JLabel("Select Month");
 		lblViewSavedCalendars.setHorizontalAlignment(SwingConstants.CENTER);
-		lblViewSavedCalendars.setBounds(39, 149, 163, 14);
+		lblViewSavedCalendars.setBounds(39, 81, 163, 14);
 		contentPane.add(lblViewSavedCalendars);
 		
 		JLabel lblEvents = new JLabel("Events");
@@ -146,37 +148,35 @@ public class CalendarMenu extends JFrame {
 		
 		
 		///start calendar
-		String days[] = {"Sun","Mon","Tue","Wed","Thu","Fri","Sat"};
+            String days[] = {"Sun","Mon","Tue","Wed","Thu","Fri","Sat"};
 
-		calendar = new GregorianCalendar();
-		model = new DefaultTableModel(null, days) {
-            /**
-			 * 
-			 */
-			private static final long serialVersionUID = 2L;
+            calendar = new GregorianCalendar();
+            model = new DefaultTableModel(null, days) {
+            
+            private static final long serialVersionUID = 2L;
 
-                @Override
-                public boolean isCellEditable(int row, int column) { //make the cells in the table editable
-                    table.setFocusable(true);
-                    table.setRowSelectionAllowed(true);
-                    return false;
+            @Override
+            public boolean isCellEditable(int row, int column) { //make the cells in the table editable
+                table.setFocusable(true);
+                table.setRowSelectionAllowed(true);
+                return false;
                 }
-        };
-        table = new JTable(model);
-        table.setFillsViewportHeight(true);
-        table.setCellSelectionEnabled(true);
-        table.setColumnSelectionAllowed(true);
-        table.setRowHeight(50);
-        table.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
-		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		table.setBounds(212, 85, 535, 318);
-		contentPane.add(table);
+            };
+            table = new JTable(model);
+            table.setFillsViewportHeight(true);
+            table.setCellSelectionEnabled(true);
+            table.setColumnSelectionAllowed(true);
+            table.setRowHeight(50);
+            table.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+            table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+            table.setBounds(212, 85, 535, 318);
+            contentPane.add(table);
 	
-		currentMonth = new JLabel();
-		currentMonth.setHorizontalAlignment(SwingConstants.CENTER);
-		currentMonth.setBounds(410, 53, 125, 14);
-		contentPane.add(currentMonth);
-		update();
+            currentMonth = new JLabel();
+            currentMonth.setHorizontalAlignment(SwingConstants.CENTER);
+            currentMonth.setBounds(410, 53, 125, 14);
+            contentPane.add(currentMonth);
+            update();
 		 //end calendar		
 	}
 	public void update() {

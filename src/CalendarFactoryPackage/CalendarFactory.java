@@ -12,15 +12,19 @@ import MonthlyCalendarPackage.MonthlyCalendar;
  * @author jacob
  */
 public class CalendarFactory {
+    public CalendarFactory(){
+        
+    }
+    
     public Calendars getCalendar(String s){
-        if(s == null){
+       /* if(s == null){
             return null;
         }        
         String sUpper=s.toUpperCase();
-        if(sUpper.equals("MONTHLY")){
+        if(sUpper.equals("MONTHLY")){*/
             return new MonthlyCalendar();
-        }
+        //}
                     
-        return null;
+        //return null;
     }
 }

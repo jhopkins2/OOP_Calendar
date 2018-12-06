@@ -13,6 +13,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Locale;
 import CalendarPackage.Calendars;
+import javax.swing.border.EtchedBorder;
 /**
  *
  * @author jacob
@@ -27,14 +28,16 @@ public class MonthlyCalendar extends JFrame implements ActionListener, Calendars
     /**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-	private JLabel monthLabel;
-    private JButton leftButton, rightButton,addEvent;
+    private static final long serialVersionUID = 1L;
+    private JLabel monthLabel;
+    private JButton addEvent;
     private JPanel panel;
     private Calendar calendar;
     private DefaultTableModel model;
     private JTable table;
     private JScrollPane scrollPane;
+    private int month;
+    private int year;
 
     @Override
     public void makeCalendar() {
@@ -42,7 +45,7 @@ public class MonthlyCalendar extends JFrame implements ActionListener, Calendars
         //Setting frame:
 
         setTitle("Calendar");
-        setSize(400,200);
+        setSize(800,425);
        
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
@@ -50,18 +53,13 @@ public class MonthlyCalendar extends JFrame implements ActionListener, Calendars
 
         monthLabel = new JLabel();
         monthLabel.setHorizontalAlignment(SwingConstants.CENTER);
-
         //Setting buttons:
 
-        leftButton = new JButton("<");
-        rightButton = new JButton(">");
-        addEvent	= new JButton("Add Event");
+        addEvent = new JButton("Add Event");
         //Setting panel:
 
         panel = new JPanel();
         panel.setLayout(new BorderLayout());
-        panel.add(leftButton, BorderLayout.WEST);
-        panel.add(rightButton, BorderLayout.EAST);
         panel.add(monthLabel, BorderLayout.CENTER);
         panel.add(addEvent, BorderLayout.SOUTH);
         //Setting Calendar to table:
@@ -78,13 +76,19 @@ public class MonthlyCalendar extends JFrame implements ActionListener, Calendars
 
 			@Override
             public boolean isCellEditable(int row, int column) {  //Setting the table not editable and not selectable
-                table.setFocusable(false);
-                table.setRowSelectionAllowed(false);
+                table.setFocusable(true);
+                table.setRowSelectionAllowed(true);
                 return false;
             }
         };
 
         table = new JTable(model);
+        table.setFillsViewportHeight(true);
+        table.setCellSelectionEnabled(true);
+        table.setColumnSelectionAllowed(true);
+        table.setRowHeight(50);
+        table.setBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null));
+        table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         scrollPane = new JScrollPane(table);
 
         getContentPane().add(panel,BorderLayout.NORTH); 
@@ -92,8 +96,6 @@ public class MonthlyCalendar extends JFrame implements ActionListener, Calendars
 
         //Adding ActionListener to buttons:
 
-        leftButton.addActionListener(this); 
-        rightButton.addActionListener(this);
         addEvent.addActionListener(this);
         //Initializing the month:
 
@@ -108,6 +110,7 @@ public class MonthlyCalendar extends JFrame implements ActionListener, Calendars
     
     private void update() {
 
+        calendar.set(Calendar.MONTH, 11);
         calendar.set(Calendar.DAY_OF_MONTH, 1);
         String month = calendar.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.US);
         int year = calendar.get(Calendar.YEAR);
@@ -131,15 +134,7 @@ public class MonthlyCalendar extends JFrame implements ActionListener, Calendars
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if( e.getSource() == leftButton ) {
-            calendar.add(Calendar.MONTH, -1);
-            update();
-        }
-        else if ( e.getSource() == rightButton ) {
-            calendar.add(Calendar.MONTH, +1);
-            update();
-        }
-        else if ( e.getSource() == addEvent ){
+        if ( e.getSource() == addEvent ){
         	String[] args = {};
 			NewEvent.createNewEventForm(args);
         }
