@@ -16,13 +16,13 @@ public class CalendarFactory {
         
     }
     
-    public Calendars getCalendar(String s){
+    public Calendars getCalendar(String s, int m){
        /* if(s == null){
             return null;
         }        
         String sUpper=s.toUpperCase();
         if(sUpper.equals("MONTHLY")){*/
-            return new MonthlyCalendar();
+            return new MonthlyCalendar(m);
         //}
                     
         //return null;

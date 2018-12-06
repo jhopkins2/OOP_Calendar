@@ -19,8 +19,9 @@ import javax.swing.border.EtchedBorder;
  * @author jacob
  */
 public class MonthlyCalendar extends JFrame implements ActionListener, Calendars{
-	public MonthlyCalendar() {
+	public MonthlyCalendar(int m) {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                month = m;
 	}
     
     //Declaring variables:
@@ -45,7 +46,7 @@ public class MonthlyCalendar extends JFrame implements ActionListener, Calendars
         //Setting frame:
 
         setTitle("Calendar");
-        setSize(800,425);
+        setBounds(380, 100, 800, 425);
        
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
@@ -99,7 +100,7 @@ public class MonthlyCalendar extends JFrame implements ActionListener, Calendars
         addEvent.addActionListener(this);
         //Initializing the month:
 
-        update();
+        update(month);
 
         setVisible(true);
 		
@@ -108,9 +109,9 @@ public class MonthlyCalendar extends JFrame implements ActionListener, Calendars
 
     //Updating month:
     
-    private void update() {
+    private void update(int m) {
 
-        calendar.set(Calendar.MONTH, 11);
+        calendar.set(Calendar.MONTH, m);
         calendar.set(Calendar.DAY_OF_MONTH, 1);
         String month = calendar.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.US);
         int year = calendar.get(Calendar.YEAR);
